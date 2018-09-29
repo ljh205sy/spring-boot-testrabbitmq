@@ -1,0 +1,21 @@
+server:
+  port: 8295
+spring:
+  application:
+    name: order
+  rabbitmq:
+    port: 5672
+    queues: topic.1,mqtt.test.*,mqtt.test.dd
+    host: 192.168.119.236
+    username: admin
+    password: admin
+    virtual-host: prontera
+    listener:
+      retry:
+        enabled: true
+    template:
+      retry:
+        enabled: true
+      mandatory: true
+    publisher-confirms: true
+    publisher-returns: true
